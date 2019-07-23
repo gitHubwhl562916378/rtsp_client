@@ -19,7 +19,7 @@ volatile char eventLoopWatchVariable = 0;
 Queue<AVPacket*> g_frames_queue;
 
 int main(int, char**) {//rtsp://192.168.2.253:8000/test.264 rtsp://192.168.2.38:5554/2
-    std::vector<std::string> urls{"rtsp://192.168.2.38:5554/2"};
+    std::vector<std::string> urls{"rtsp://192.168.2.253:8000/test.264"};
     TaskScheduler* scheduler = BasicTaskScheduler::createNew();
     UsageEnvironment* env = BasicUsageEnvironment::createNew(*scheduler);
 
@@ -95,7 +95,7 @@ int main(int, char**) {//rtsp://192.168.2.253:8000/test.264 rtsp://192.168.2.38:
                  std::cout << "use time: " << use_time_interval.count() << std::endl;
 
                  cv::Mat frame(3 * c->height / 2, c->width, CV_8UC1, m_buffer);
-                 cv::cvtColor(frame, frame, CV_YUV2BGR_I420);
+                 cv::cvtColor(frame, frame, CV_YUV2BGR_I420); //很耗cpu,i5 6核、1080p 30%左右.
 #endif
                  cv::imshow("rtsVieo",frame);
                  cv::waitKey(1);
