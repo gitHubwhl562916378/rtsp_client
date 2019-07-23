@@ -2,7 +2,7 @@
 
 #include "liveMedia.hh"
 #include "BasicUsageEnvironment.hh"
-#define REQUEST_STREAMING_OVER_TCP 1
+#define REQUEST_STREAMING_OVER_TCP True
 
 class StreamClientState {
 public:

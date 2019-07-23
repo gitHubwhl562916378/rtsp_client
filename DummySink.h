@@ -21,9 +21,13 @@ private:
                             struct timeval presentationTime,
                             unsigned durationInMicroseconds);
     
-    virtual Boolean continuePlaying();
+    Boolean continuePlaying();
 
     u_int8_t* fReceiveBuffer = nullptr;
+    bool isFirstFrame_ = true;
     MediaSubsession& fSubsession;
     char* fStreamId;
+
+    char *p_nalu_tail = nullptr;
+    char *nalu_buffer = nullptr;
 };
