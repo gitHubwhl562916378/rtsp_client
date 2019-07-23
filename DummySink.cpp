@@ -57,8 +57,6 @@ void DummySink::afterGettingFrame(unsigned frameSize,unsigned numTruncatedBytes,
     envir() << "\n";
 #endif
 
-    static struct timeval pre_time_stamp = {0,0};
-
     u_char const start_code[4]{0x00,0x00,0x00,0x01};
     if(!::strcmp(fSubsession.codecName(),"H264"))
     {

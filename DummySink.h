@@ -28,6 +28,7 @@ private:
     MediaSubsession& fSubsession;
     char* fStreamId;
 
+    struct timeval pre_time_stamp = {0,0};
     char *p_nalu_tail = nullptr;
     char *nalu_buffer = nullptr;
 };
